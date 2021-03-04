@@ -7,7 +7,7 @@ import Cookie from "js-cookie";
 function NavBar() {
   const router = useRouter();
   const { state, dispatch } = useContext(DataContext);
-  const { auth, cart } = state;
+  const { auth, cart, wishlist } = state;
 
   const isActive = (r) => {
     if (r === router.pathname) {
@@ -17,12 +17,22 @@ function NavBar() {
     }
   };
 
+  if (typeof window !== "undefined") {
+    window.addEventListener("beforeunload", function () {
+      if (auth.user) {
+        handleLogout();
+      }
+    });
+  }
+
   const handleLogout = () => {
     Cookie.remove("refreshtoken", { path: "api/auth/accessToken" });
     localStorage.removeItem("firstLogin");
+    localStorage.removeItem("cartitems");
     dispatch({ type: "AUTH", payload: {} });
     dispatch({ type: "NOTIFY", payload: { success: "Logged out!" } });
     return router.push("/");
+    location.reload();
   };
 
   const adminRouter = () => {
@@ -101,32 +111,65 @@ function NavBar() {
         id="navbarNavDropdown"
       >
         <ul className="navbar-nav p-1">
-          <li className="nav-item">
-            <Link href="/cart">
-              <a className={"nav-link" + isActive("/cart")}>
-                <i
-                  className="fas fa-shopping-cart position-relative"
-                  aria-hidden="true"
-                >
-                  <span
-                    className="position-absolute"
-                    style={{
-                      padding: "3px 6px",
-                      background: "#ed143dc2",
-                      borderRadius: "50%",
-                      top: "-10px",
-                      right: "-10px",
-                      color: "white",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {cart.length}
-                  </span>
-                </i>{" "}
-                Cart
-              </a>
-            </Link>
-          </li>
+          {auth.user && auth.user.role !== "admin" && (
+            <>
+              <li className="nav-item">
+                <Link href="/wishlist">
+                  <a className={"nav-link" + isActive("/wish")}>
+                    <i
+                      className="fas fa-thumbtack position-relative"
+                      aria-hidden="true"
+                    >
+                      <span
+                        className="position-absolute"
+                        style={{
+                          padding: "3px 6px",
+                          background: "#ed143dc2",
+                          borderRadius: "50%",
+                          top: "-10px",
+                          right: "-10px",
+                          color: "white",
+                          fontSize: "14px",
+                          marginLeft: "2px",
+                        }}
+                      >
+                        {wishlist.length}
+                      </span>
+                    </i>
+                    {"    "}
+                    WishList
+                  </a>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/cart">
+                  <a className={"nav-link" + isActive("/cart")}>
+                    <i
+                      className="fas fa-shopping-cart position-relative"
+                      aria-hidden="true"
+                    >
+                      <span
+                        className="position-absolute"
+                        style={{
+                          padding: "3px 6px",
+                          background: "#ed143dc2",
+                          borderRadius: "50%",
+                          top: "-10px",
+                          right: "-10px",
+                          color: "white",
+                          fontSize: "14px",
+                        }}
+                      >
+                        {cart.length}
+                      </span>
+                    </i>
+                    {"    "}
+                    Cart
+                  </a>
+                </Link>
+              </li>
+            </>
+          )}
           {Object.keys(auth).length === 0 ? (
             <li className="nav-item">
               <Link href="/signin">

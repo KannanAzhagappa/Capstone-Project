@@ -28,6 +28,14 @@ const userSchema = new mongoose.Schema(
       default:
         "https://res.cloudinary.com/kannanazhagappa/image/upload/v1614752034/ecommerce_media/avatar_gquslj.png",
     },
+    // cart: {
+    //   type: Array,
+    //   default: [],
+    // },
+    // wishlist: {
+    //   type: Array,
+    //   default: [],
+    // }
   },
   {
     timestamps: true,

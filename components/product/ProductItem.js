@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { DataContext } from "../../store/GlobalState";
-import { addToCart } from "../../store/Actions";
+import { addToCart, addToWishlist } from "../../store/Actions";
 
 const ProductItem = ({ product, handleCheck }) => {
   const { state, dispatch } = useContext(DataContext);
-  const { cart, auth } = state;
+  const { cart, auth, wishlist } = state;
 
   const userLink = () => {
     return (
@@ -74,6 +74,15 @@ const ProductItem = ({ product, handleCheck }) => {
           style={{ height: "20px", width: "20px" }}
           onChange={() => handleCheck(product._id)}
         />
+      )}
+      {auth.user && auth.user.role !== "admin" && (
+        // product.inStock < 0 &&
+        <Link href={`/`}>
+          <i
+            className="fas fa-thumbtack special position-absolute m-2"
+            onClick={() => dispatch(addToWishlist(product, wishlist))}
+          ></i>
+        </Link>
       )}
       <img
         className="card-img-top"

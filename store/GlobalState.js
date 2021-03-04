@@ -9,6 +9,7 @@ export const DataProvider = ({ children }) => {
     notify: {},
     auth: {},
     cart: [],
+    wishlist: [],
     modal: [],
     orders: [],
     users: [],
@@ -16,7 +17,7 @@ export const DataProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(reducers, initialState);
-  const { cart, auth } = state;
+  const { wishlist, cart, auth } = state;
 
   useEffect(() => {
     const firstLogin = localStorage.getItem("firstLogin");
@@ -53,6 +54,17 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("cartitems", JSON.stringify(cart));
   }, [cart]);
+
+  useEffect(() => {
+    const wishlistitems = JSON.parse(localStorage.getItem("wishlistitems"));
+
+    if (wishlistitems)
+      dispatch({ type: "ADD_WISHLIST", payload: wishlistitems });
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("wishlistitems", JSON.stringify(wishlist));
+  }, [wishlist]);
 
   useEffect(() => {
     if (auth.token) {
