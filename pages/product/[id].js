@@ -69,16 +69,16 @@ const DetailProduct = (props) => {
           Buy
         </button>
       </div>
-      <div>
+      {/* <div>
         <h2>Related products</h2>
         <div className="products">
-          {/* {allproducts.map((productitem) => {
+          {allproducts.map((productitem) => {
             return productitem.category === product.category ? (
               <ProductItem key={productitem._id} product={productitem} />
             ) : null;
-          })} */}
+          })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
