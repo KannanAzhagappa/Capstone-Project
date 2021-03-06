@@ -185,20 +185,22 @@
 }
 
 @media screen and (max-width: 600px) {
-.aboutcontainer {
-    align-items: center;
-}
-
 .logo {
     align-items: center;
     float: none;
-    margin: 0.5px;
-    margin-left: 70px;
+    justify-content: center;
+    text-align:center;
 }
 
 .aboutcontainer {
     align-items: center;
     justify-content: center; 
+    text-align:center;
+}
+
+.aboutdetail {
+    justify-content: center;
+    align-items: center;
 }
 }
 
