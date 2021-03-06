@@ -29,13 +29,14 @@ function NavBar() {
     Cookie.remove("refreshtoken", { path: "api/auth/accessToken" });
     localStorage.removeItem("firstLogin");
     localStorage.removeItem("cartitems");
+    localStorage.removeItem("wishlistitems");
     dispatch({ type: "AUTH", payload: {} });
     dispatch({ type: "NOTIFY", payload: { success: "Logged out!" } });
     return router.push("/");
     location.reload();
   };
 
-  const adminRouter = () => {
+  function adminRouter() {
     return (
       <>
         <Link href="/users">
@@ -49,7 +50,7 @@ function NavBar() {
         </Link>
       </>
     );
-  };
+  }
 
   const loggedRouter = () => {
     return (
