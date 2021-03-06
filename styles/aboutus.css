@@ -186,16 +186,17 @@
 
 @media screen and (max-width: 600px) {
 .logo {
-    align-items: center;
+    align-items: left;
     float: none;
-    justify-content: center;
-    text-align:center;
+    justify-content: left;
+    text-align:left;
+    margin-left: 20px;
 }
 
 .aboutcontainer {
-    align-items: center;
-    justify-content: center; 
-    text-align:center;
+    align-items: left;
+    justify-content: left; 
+    text-align:left;
 }
 
 .aboutdetail {
@@ -203,7 +204,16 @@
     align-items: center;
     margin: 0;
     padding: 0;
+    margin-bottom: 10px;
 }
+
+.heading {
+    justify-content: left;
+    float: left;
+    margin-bottom: 50px;
+    margin-left: 20px;
+}
+
 }
 
 @media screen and (max-width: 1200px) {
