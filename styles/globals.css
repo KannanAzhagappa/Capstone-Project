@@ -20,6 +20,27 @@ img{
   object-position: 0 30%;
 }
 
+h1 {
+  text-align: center;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -1px;
+  color: inherit;
+  font-size: 40px;
+}
+
+h2 {
+  color: inherit;
+}
+
+.center {
+  text-align: center;
+}
+
+section {
+  height: 100vh;
+}
+
 /* ----------- Loading ------------- */
 @import url("./loading.css");
 
@@ -31,3 +52,9 @@ img{
 
 /* ----------- Products Manager ------------- */
 @import url("./products_manager.css");
+
+/* ----------- Navigation ------------- */
+@import url("./nav.css");
+
+/* ----------- Aboutus ------------- */
+@import url("./aboutus.css");

@@ -108,7 +108,7 @@ const Cart = () => {
       <img
         className="img-responsive w-100"
         src="/empty_cart.jpg"
-        alt="not empty"
+        alt="Empty Cart"
       />
     );
 

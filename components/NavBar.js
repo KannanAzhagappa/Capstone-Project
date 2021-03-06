@@ -91,9 +91,17 @@ function NavBar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg bg-light mt-2">
       <Link href="/">
-        <a className="navbar-brand">PRODUCTMART</a>
+      <img
+          src="/E Mart.png"
+          alt="Logo"
+          className="d-block img-thumbnail mr-2 navimg"
+          style={{ height: "50px", width: "50px" }}
+        />
+      </Link>
+      <Link href="/aboutus">
+        <a className="navbar-brand ml-4">ABOUT US</a>
       </Link>
       <button
         className="navbar-toggler"

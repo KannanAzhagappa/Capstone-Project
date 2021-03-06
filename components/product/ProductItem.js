@@ -75,8 +75,7 @@ const ProductItem = ({ product, handleCheck }) => {
           onChange={() => handleCheck(product._id)}
         />
       )}
-      {auth.user && auth.user.role !== "admin" && (
-        // product.inStock < 0 &&
+      {auth.user && auth.user.role !== "admin" && product.inStock < 0 &&(
         <Link href={`/`}>
           <i
             className="fas fa-thumbtack special position-absolute m-2"

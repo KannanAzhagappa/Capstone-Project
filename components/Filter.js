@@ -27,7 +27,7 @@ const Filter = ({ state }) => {
   }, [search]);
 
   return (
-    <div className="input-group">
+    <div className="input-group mt-2">
       <div className="input-group-prepend col-md-2 px-0 mt-2">
         <select
           className="custom-select text-capitalize"
