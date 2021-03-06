@@ -91,7 +91,7 @@ function NavBar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light mt-2">
+    <nav className="navbar navbar-expand-lg bg-light mt-2 navbar-light">
       <Link href="/">
       <img
           src="/E Mart.png"

@@ -5,6 +5,7 @@ nav {
     font-weight: 400;
     box-shadow: 5px 2px 5px rgba(59, 43, 91, 0.3);
     border: 1px solid  rgba(230, 218, 253, 0.986);
+    z-index: 1;
 }
 
 nav ul {
@@ -53,4 +54,8 @@ nav a:hover {
 
 .navimg:hover {
     transform: scale(1.05);
+}
+
+.positionnav {
+    z-index: 99;
 }
