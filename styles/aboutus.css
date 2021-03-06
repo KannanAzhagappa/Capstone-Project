@@ -183,16 +183,16 @@
     }    
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 .aboutcontainer {
     align-items: center;
-    justify-content: center;
 }
 
 .logo {
     align-items: center;
-    justify-content: center;
-    margin-left: 70px;
+    float: none;
+    margin: 0.5px;
+    margin-left: 5rem;
 }
 
 .aboutcontainer {
