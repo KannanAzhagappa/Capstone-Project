@@ -1,14 +1,21 @@
 import Head from "next/head";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { getData } from "../../utils/fetchData";
 import { DataContext } from "../../store/GlobalState";
 import { addToCart } from "../../store/Actions";
+// import ProductItem from "../../components/product/ProductItem";
 
 const DetailProduct = (props) => {
   const [product] = useState(props.product);
+  // const [product,setProduct] = useState(props.product);
+  // const [products,setProducts] = useState([]);
   const [tab, setTab] = useState(0);
   const { state, dispatch } = useContext(DataContext);
   const { auth, cart } = state;
+  
+  // useEffect(() => {
+  //   setProducts(JSON.parse(localStorage.getItem("myproducts")));
+  // }, []);
 
   const isActive = (index) => {
     if (tab === index) return " active";
@@ -16,6 +23,7 @@ const DetailProduct = (props) => {
   };
 
   return (
+    <>
     <div className="row detail_page">
       <Head>
         <title>Detail Product</title>
@@ -69,17 +77,17 @@ const DetailProduct = (props) => {
           Buy
         </button>
       </div>
-      {/* <div>
-        <h2>Related products</h2>
+      </div>
+        {/* <h2 className="relatedh2">Related products</h2>
         <div className="products">
-          {allproducts.map((productitem) => {
-            return productitem.category === product.category ? (
+          {products.map((productitem) => {
+            return productitem.category === product.category && productitem._id !== product._id ? (
+              // setProduct(productitem)
               <ProductItem key={productitem._id} product={productitem} />
             ) : null;
           })}
-        </div>
-      </div> */}
-    </div>
+        </div> */}
+    </>
   );
 };
 

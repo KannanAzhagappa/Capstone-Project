@@ -10,6 +10,7 @@ const ProductItem = ({ product, handleCheck }) => {
   const userLink = () => {
     return (
       <>
+        {/* <Link href={typeof window !== "undefined" && window.location.href.includes('product') ? `/product/${product._id}` : `product/${product._id}`}> */}
         <Link href={`product/${product._id}`}>
           <a className="btn btn-info" style={{ marginRight: "5px", flex: 1 }}>
             View

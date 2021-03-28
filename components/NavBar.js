@@ -30,6 +30,7 @@ function NavBar() {
     localStorage.removeItem("firstLogin");
     localStorage.removeItem("cartitems");
     localStorage.removeItem("wishlistitems");
+    localStorage.removeItem("scanfiltered");
     dispatch({ type: "AUTH", payload: {} });
     dispatch({ type: "NOTIFY", payload: { success: "Logged out!" } });
     return router.push("/");
@@ -104,6 +105,13 @@ function NavBar() {
       <Link href="/aboutus">
         <a className="navbar-brand ml-4">ABOUT US</a>
       </Link>
+      {auth.user && auth.user.role !== "admin" && (
+      <>
+      <Link href="/uploadsearch">
+        <a className="navbar-brand ml-4">UPLOAD SEARCH</a>
+      </Link>
+      </>
+      )}
       <button
         className="navbar-toggler"
         type="button"
